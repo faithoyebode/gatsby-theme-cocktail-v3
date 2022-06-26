@@ -17,7 +17,7 @@ here for educational purposes.
 module.exports = {
   plugins: [
     {
-      resolve: "gatsby-theme-minimal",
+      resolve: "gatsby-theme-cocktail",
       options: {},
     },
   ],

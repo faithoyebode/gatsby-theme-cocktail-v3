@@ -4,10 +4,10 @@
   "version": "0.0.1",
   "license": "0BSD",
   "scripts": {
-    "build": "yarn workspace example build"
+    "build": "yarn workspace site build"
   },
   "workspaces": [
-    "gatsby-theme-minimal",
-    "example"
+    "gatsby-theme-cocktail",
+    "site"
   ]
 }
