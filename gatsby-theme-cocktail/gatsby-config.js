@@ -1,3 +1,5 @@
+const path = require(`path`);
+
 module.exports = {
     plugins: [
         {
@@ -8,8 +10,14 @@ module.exports = {
               ignore: [`**/.*`],
              },
         },
+        {
+            resolve: `gatsby-plugin-layout`,
+            options: {
+              component: path.resolve(__dirname, `src/layouts/index.js`),
+            },
+        },
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
-        `gatsby-plugin-image`
+        `gatsby-plugin-image`,
     ]
 }

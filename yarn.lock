@@ -985,7 +985,7 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/preset-react@^7.14.0":
+"@babel/preset-react@^7.14.0", "@babel/preset-react@^7.17.12":
   version "7.17.12"
   resolved "https://registry.yarnpkg.com/@babel/preset-react/-/preset-react-7.17.12.tgz#62adbd2d1870c0de3893095757ed5b00b492ab3d"
   integrity sha512-h5U+rwreXtZaRBEQhW1hOJLMq8XNJBQ/9oymXiCXTuT/0uOwpbT0gUt+sXeOqoXBgNuUKI7TaObVwoEyWkpFgA==
@@ -5681,6 +5681,13 @@ gatsby-plugin-image@^2.17.0:
     gatsby-plugin-utils "^3.11.0"
     objectFitPolyfill "^2.3.5"
     prop-types "^15.8.1"
+
+gatsby-plugin-layout@^3.17.0:
+  version "3.17.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-3.17.0.tgz#18cf79a7f28b346bf30256f27e0325696f4057ef"
+  integrity sha512-ouqfZ57+h75FsYwGuaA/wixfoufpJRGjNahWg9fbRZYAbcSjAJy2q9xuIY/TKjKZy9z0YgjFOGtLuhVRjT5Cgw==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
 
 gatsby-plugin-page-creator@^4.17.0:
   version "4.17.0"

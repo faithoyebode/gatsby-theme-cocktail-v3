@@ -9,6 +9,22 @@ exports.onPreInit = () => {
     console.log("Loading gatsby-cocktail-theme plugin");
 }
 
+exports.onCreateBabelConfig = ({ actions }) => {
+    actions.setBabelPlugin({
+      name: `@compiled/babel-plugin`,
+      options: {}
+    });
+    actions.setBabelPreset({
+        name: `babel-preset-gatsby`,
+        options: {
+            reactRuntime:"automatic",
+            targets: {
+                browsers: [">0.25%", "not dead"]
+            }
+        }
+    })
+  }
+
 //types
 const DRINK_NODE_TYPE = `Cocktail`
 
@@ -150,7 +166,7 @@ exports.createResolvers = ({
 
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
-    const indexPageTemplate = path.resolve(`src/templates/index.js`)
+    const indexPageTemplate = path.resolve(__dirname, `src/templates/index.js`)
     createPage({
     // Path for this page — required
         path: "/",
@@ -169,7 +185,7 @@ exports.createPages = async ({ graphql, actions }) => {
     allDrinks.data.allCocktail.nodes.forEach(drink => {
         createPage({
             path: `/drink/${slugify(drink.strDrink.toLowerCase())}`,
-            component: path.resolve(`src/templates/single-cocktail.js`),
+            component: path.resolve(__dirname, `src/templates/single-cocktail.js`),
             context: {id: drink.id}
         })
     })

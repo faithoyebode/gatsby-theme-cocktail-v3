@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "license": "0BSD",
   "scripts": {
-    "build": "yarn workspace site build"
+    "build": "yarn workspace site build",
+    "develop": "gatsby develop"
   },
   "workspaces": [
     "gatsby-theme-cocktail",
