@@ -1,6 +1,7 @@
 const path = require(`path`);
 
-module.exports = ({ font = "Yellowtail"}) => ({
+module.exports = function({ font = "Yellowtail"}){
+    return ({
     siteMetadata: {
 		title: `Online Cocktail shop`,
 		siteUrl: `http://localhost:9000`, // url used to generate sitemap
@@ -39,4 +40,4 @@ module.exports = ({ font = "Yellowtail"}) => ({
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-robots-txt`
     ]
-})
+});}
