@@ -178,16 +178,19 @@ exports.createPages = async ({ graphql, actions }) => {
             nodes {
             id
             strDrink
+            furtherInformationExcerpt
             }
         }
     }`);
 
     allDrinks.data.allCocktail.nodes.forEach(drink => {
-        createPage({
-            path: `/drink/${slugify(drink.strDrink.toLowerCase())}`,
-            component: path.resolve(__dirname, `src/templates/single-cocktail.js`),
-            context: {id: drink.id}
-        })
+        if(drink.furtherInformationExcerpt){
+            createPage({
+                path: `/drink/${slugify(drink.strDrink.toLowerCase())}`,
+                component: path.resolve(__dirname, `src/templates/single-cocktail.js`),
+                context: {id: drink.id}
+            })
+        }
     })
 }
 

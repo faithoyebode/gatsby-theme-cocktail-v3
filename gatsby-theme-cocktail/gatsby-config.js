@@ -1,6 +1,10 @@
 const path = require(`path`);
 
-module.exports = {
+module.exports = ({ font = "Yellowtail"}) => ({
+    siteMetadata: {
+		title: `Online Cocktail shop`,
+		siteUrl: `http://localhost:9000`, // url used to generate sitemap
+	},
     plugins: [
         {
             resolve: 'gatsby-source-filesystem', 
@@ -16,8 +20,23 @@ module.exports = {
               component: path.resolve(__dirname, `src/layouts/index.js`),
             },
         },
+        {
+            resolve: `gatsby-plugin-webfonts`,
+            options: {
+                fonts: {
+                    google: [
+                        {
+                            family: font,
+                            variants: ["300", "400", "500"],
+                        },
+                    ],
+                },
+            }
+        },
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-image`,
+        `gatsby-plugin-sitemap`,
+        `gatsby-plugin-robots-txt`
     ]
-}
+})

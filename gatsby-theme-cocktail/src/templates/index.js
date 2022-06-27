@@ -99,6 +99,7 @@ const Index = (props) => {
                   marginBottom: 0,
                   fontFamily: "sans-serif",
                   color: "black",
+                  fontFamily: "Raleway"
                 }}
               >
                 {item.strDrink}
