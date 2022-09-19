@@ -1,11 +1,21 @@
 /** @jsxImportSource @compiled/react */
 import React from 'react';
-import { graphql, Link } from "gatsby";
+import {  Link, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import slugify from 'slugify';
+import { singleCocktail } from '../templates/single-cocktail';
+
 
 const Index = (props) => {
-  const { allCocktail } = props.data
+  const { allCocktail } = props.data;
+
+  const { data, loading } = useGet((req, res) => {
+    const href = graphql.post("/");
+    slugify("police");
+    singleCocktail();
+    if(req.method) console.log(req.body);
+  }, ["someDependency"]);
+  
   return (
     <div css={{
         width: "100%",

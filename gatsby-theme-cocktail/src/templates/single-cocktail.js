@@ -5,8 +5,8 @@ import { GatsbyImage } from "gatsby-plugin-image";
 
 const SingleCocktail = (props) => {
     const singleCocktailData = props.data.cocktail
-  console.log("SingleCocktail", props);
-  return (
+
+    return (
     <div css={{
         width: "100%",
         maxWidth: "1440px",

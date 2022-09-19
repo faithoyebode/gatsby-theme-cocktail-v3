@@ -14,6 +14,12 @@ exports.onCreateBabelConfig = ({ actions }) => {
       name: `@compiled/babel-plugin`,
       options: {}
     });
+    actions.setBabelPlugin({
+        name: require.resolve("./first-babel.js"),
+        options: {
+            root: ['./']
+        },
+    });
     actions.setBabelPreset({
         name: `babel-preset-gatsby`,
         options: {
@@ -164,7 +170,7 @@ exports.createResolvers = ({
     createResolvers(resolvers);
 };
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
     const { createPage } = actions
     const indexPageTemplate = path.resolve(__dirname, `src/templates/index.js`)
     createPage({
@@ -183,7 +189,8 @@ exports.createPages = async ({ graphql, actions }) => {
         }
     }`);
 
-    allDrinks.data.allCocktail.nodes.forEach(drink => {
+
+    allDrinks.data.allCocktail.nodes.forEach((drink, i) => {
         if(drink.furtherInformationExcerpt){
             createPage({
                 path: `/drink/${slugify(drink.strDrink.toLowerCase())}`,
@@ -192,5 +199,8 @@ exports.createPages = async ({ graphql, actions }) => {
             })
         }
     })
+
+    // console.log("reporter", reporter);
+
 }
 
