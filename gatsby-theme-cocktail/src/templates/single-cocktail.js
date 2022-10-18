@@ -1,7 +1,7 @@
 /** @jsxImportSource @compiled/react */
-import React from 'react';
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import React from 'react';
 
 const SingleCocktail = (props) => {
     const singleCocktailData = props.data.cocktail

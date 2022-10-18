@@ -14,8 +14,13 @@ module.exports = function (babel) {
           }
         },
 
+        // FunctionExpression: function (path, state) {
+        //   console.log("function expression");
+        // },
+
         Identifier(path, state) {
           if(path.node.name === "useGet"){
+            console.log("custom GB plugin");
             const funcExpr = path.container.arguments[0]; 
             let sliceResult = state.file.code.slice(funcExpr.loc.start.index, funcExpr.loc.end.index);
 
@@ -98,7 +103,7 @@ module.exports = function (babel) {
 				      }
 			      })
             
-            console.log("importStatements", importStatements); 
+            //console.log("importStatements", importStatements); 
             
 
 
@@ -114,7 +119,6 @@ module.exports = function (babel) {
 
             transformedCode += "const handler = " + sliceResult + " \n export default handler";
             fse.outputFileSync("./src/api/demo-api.js", transformedCode);
-            // path.remove();
 
             const replacementString = babel.template.statement.ast(`
                 (async () => {
@@ -126,7 +130,7 @@ module.exports = function (babel) {
                 })()
             `);
 
-            path.parentPath.replaceWith(replacementString);
+            path.replaceWith(replacementString);
           }
         }
       }

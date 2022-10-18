@@ -28,8 +28,9 @@ exports.onCreateBabelConfig = ({ actions }) => {
                 browsers: [">0.25%", "not dead"]
             }
         }
-    })
-  }
+    });
+    
+}
 
 //types
 const DRINK_NODE_TYPE = `Cocktail`

@@ -9,12 +9,9 @@ import { singleCocktail } from '../templates/single-cocktail';
 const Index = (props) => {
   const { allCocktail } = props.data;
 
-  const { data, loading } = useGet((req, res) => {
-    const href = graphql.post("/");
-    slugify("police");
-    singleCocktail();
-    if(req.method) console.log(req.body);
-  }, ["someDependency"]);
+  const { data, loading } = useGet(() => {
+    return "Hello"
+    }, [])
   
   return (
     <div css={{
